@@ -1,0 +1,10 @@
+SELECT ?unisg ?alumniName ?job ?birthdate
+WHERE { 
+  ?unisg  dbo:type dbr:Public_university .
+  ?unisg dbp:country dbr:Switzerland .
+  ?unisg dbo:city dbr:St._Gallen .
+  ?alumni dbo:almaMater ?unisg.
+  ?alumni  dbp:name ?alumniName .
+  ?alumni dbo:birthDate ?birthdate .
+  ?alumni  dbp:office ?job .
+}

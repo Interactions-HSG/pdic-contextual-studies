@@ -1,0 +1,17 @@
+SELECT ?countryLabel ?location ?population ?index ?indexDate
+WHERE {
+  
+  ?country wdt:P31 wd:Q3624078 .
+  ?country wdt:P706 wd:Q27496 .
+  ?country wdt:P625 ?location .
+  ?country p:P1082 ?populationStatement .
+  ?populationStatement ps:P1082 ?population .
+  ?country p:P1081 ?indexStatement .
+  ?indexStatement  ps:P1081 ?index .
+  ?indexStatement  pq:P585 ?indexDate .
+  
+  
+  FILTER (?indexDate >  "2012-12-31T11:59"^^xsd:dateTime) #filter out data older than 2014
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". } # Helps get the label in your language, if not, then en language
+
+  }

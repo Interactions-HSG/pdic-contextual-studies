@@ -1,0 +1,14 @@
+SELECT *
+WHERE 
+{
+   <https://en.wikipedia.org/wiki/University_of_St._Gallen>  schema:about ?unisg .
+  ?unisg wdt:P1813 ?shortName .
+  ?unisg wdt:P6375 ?streetAddress .
+  ?unisg p:P2002 ?twitterHandle .
+  ?twitterHandle pq:P6552 ?numericID .
+  ?twitterHandle pq:P585 ?time .
+  #?here wds:P2002 ?twitterHandlePs .
+  ?unisg ?p ?predicate .
+                                                         
+                                          
+}

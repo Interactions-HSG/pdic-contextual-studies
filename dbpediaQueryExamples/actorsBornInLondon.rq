@@ -1,0 +1,15 @@
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX dbr: <http://dbpedia.org/resource/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+SELECT DISTINCT ?person ?name ?birth
+WHERE 
+{
+    ?person dbo:birthPlace dbr:London .
+    ?person dbo:occupation dbr:Actor .
+    ?person foaf:name ?name .
+    ?person dbo:birthDate ?birth
+    FILTER (?birth > "1960-01-01"^^xsd:date) .
+    FILTER NOT EXISTS { ?person dbo:deathDate ?death. }
+}
