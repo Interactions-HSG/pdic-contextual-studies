@@ -1,0 +1,10 @@
+av
+jupyter
+numpy
+matplotlib
+msgpack
+opencv-python
+pandas
+Pillow
+scipy
+seaborn
